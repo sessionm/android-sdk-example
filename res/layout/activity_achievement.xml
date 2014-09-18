@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fbutton="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/parent_layout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#fff"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/portal_button_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="#fff"
+        android:orientation="horizontal" >
+
+        <!-- this is a custom button -->
+
+        <ImageButton
+            android:id="@+id/rewards_btn"
+            android:layout_width="85dp"
+            android:layout_height="85dp"
+            android:layout_alignParentLeft="true"
+            android:background="@color/color_sessionm"
+            android:contentDescription="@string/portal_button_desc"
+            android:src="@drawable/icn_mportal_off"
+            android:layout_margin="10dp" />
+
+        <com.sessionm.api.PortalButton
+            android:id="@+id/portalButton"
+            android:layout_width="85dp"
+            android:layout_height="85dp"
+            android:layout_alignParentRight="true"
+            android:scaleType="fitStart"
+            android:layout_margin="10dp">
+
+        </com.sessionm.api.PortalButton>
+
+    </RelativeLayout>
+
+
+    <info.hoang8f.widget.FButton
+        android:id="@+id/custom_action_btn"
+        fbutton:buttonColor="@color/color_sessionm"
+        fbutton:shadowColor="@color/fbutton_color_asbestos"
+        fbutton:shadowEnabled="true"
+        fbutton:shadowHeight="5dp"
+        fbutton:cornerRadius="5dp"
+        android:layout_height="100dp"
+        android:layout_width="match_parent"
+        android:layout_below="@id/portal_button_layout"
+        android:layout_margin="10dp"
+        android:text="@string/custom_action_text" />
+
+    <info.hoang8f.widget.FButton
+        android:id="@+id/action_btn"
+        fbutton:buttonColor="@color/color_sessionm"
+        fbutton:shadowColor="@color/fbutton_color_asbestos"
+        fbutton:shadowEnabled="true"
+        fbutton:shadowHeight="5dp"
+        fbutton:cornerRadius="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_below="@+id/custom_action_btn"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="10dp"
+        android:text="@string/action_button_text" />
+
+</RelativeLayout>

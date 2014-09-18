@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">SessionMSample</string>
+    <string name="action_settings">Settings</string>
+    <string name="portal_button_desc">Portal Button</string>
+    <string name="action_button_text">Log Action</string>
+    <string name="custom_action_text">Custom Achievement</string>
+    <string name="claim">CLAIM</string>
+    <string name="achievement_unlocked">ACHIEVEMENT UNLOCKED</string>
+    <string name="close_button_desc">Close Button</string>
+    <string-array name="presentation_styles">
+        <item>Slide In/Slide Out</item>
+        <item>Scale Up/Scale Down</item>
+    </string-array>
+
+    <string-array name="lists_array">
+        <item>Home</item>
+        <item>mPoints</item>
+        <item>Achievement</item>
+        <item>Welcome</item>
+    </string-array>
+
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
+    <string name="action_websearch">Web search</string>
+    
+    <string name="dialog_welcome">
+                        <b> COLLECT mPOINTS</b>
+                        for daily activities in your favorite apps; like tracking a run, adding a movie to your watchlist or checking the weather.\n\n
+                        <b>ENGAGE WITH BRANDS</b>
+                        and earn bonus mPOINTS when you choose to watch their videos, play games or take social polls during natural breaks in app content.\n\n
+                        <b>Choose Your Rewards!</b>
+                        Redeem your mPOINTS for gift cards from major retailers like iTunes and Amazon. Or use them for contest entries or to donate to a favorite charity.
+    </string>
+
+    <string name="dialog_ok">Try it!</string>
+    <string name="dialog_cancel">Later</string>
+    <string name="dialog_title">Welcome to mPOINTS!</string>
+
+</resources>

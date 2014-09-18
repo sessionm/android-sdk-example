@@ -138,7 +138,8 @@ public class MainActivity extends BaseActivity {
      */
     private void updateDrawerBadge() {
         int count = SessionM.getInstance().getUser().getUnclaimedAchievementCount();
-        if (count != 0) {
+        mListCount.put(1, "");
+        if (count > 0) {
             mListCount.put(1, Integer.toString(count));
         }
         myAdapter.notifyDataSetChanged();

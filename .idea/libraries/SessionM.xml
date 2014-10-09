@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="SessionM">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/libs/SessionM.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

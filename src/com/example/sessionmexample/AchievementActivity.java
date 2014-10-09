@@ -69,7 +69,6 @@ public class AchievementActivity extends Activity implements CustomAchievementLi
                 break;
             case R.id.custom_action_btn:
                 SessionM.getInstance().logAction("custom example");
-                onUnclaimedAchievement(SessionM.getInstance(), SessionM.getInstance().getUnclaimedAchievement());
                 break;
             case R.id.action_btn:
                 /**
@@ -116,28 +115,6 @@ public class AchievementActivity extends Activity implements CustomAchievementLi
             customAchievement.dismiss(true);
         }
         customAchievement = null;
-    }
-
-    /**
-     * Method to present custom achievements
-     */
-    public void onUnclaimedAchievement(SessionM session, AchievementData achievement) {
-        if (achievement != null && achievement.isCustom()) {
-            ViewGroup mainLayout = (ViewGroup) AchievementActivity.this.findViewById(R.id.parent_layout);
-            if (mainLayout != null) {
-                customAchievement = (CustomAchievement) getLayoutInflater()
-                        .inflate(R.layout.custom_achievement, null);
-                customAchievement.setAchievementData(achievement);
-                customAchievement.setAchievementListener(AchievementActivity.this);
-                customAchievement.setAchievementViewGroup(mainLayout);
-                customAchievement.setAchievementPresentationStyle(AchievementPresentationStyle.SLIDE_IN_SLIDE_OUT);
-                if (session.isAutopresentMode()) {
-                    customAchievement.present();
-                }
-            }
-        } else {
-            customAchievement = null;
-        }
     }
 
     /**
@@ -199,7 +176,26 @@ public class AchievementActivity extends Activity implements CustomAchievementLi
                 rewardsButton.setEnabled(true);
                 rewardsButton.setVisibility(View.GONE);
             }
+        }
 
+        @Override
+        public void onUnclaimedAchievement(SessionM session, AchievementData achievement) {
+            if (achievement != null && achievement.isCustom()) {
+                ViewGroup mainLayout = (ViewGroup) AchievementActivity.this.findViewById(R.id.parent_layout);
+                if (mainLayout != null) {
+                    customAchievement = (CustomAchievement) getLayoutInflater()
+                            .inflate(R.layout.custom_achievement, null);
+                    customAchievement.setAchievementData(achievement);
+                    customAchievement.setAchievementListener(AchievementActivity.this);
+                    customAchievement.setAchievementViewGroup(mainLayout);
+                    customAchievement.setAchievementPresentationStyle(AchievementPresentationStyle.SLIDE_IN_SLIDE_OUT);
+                    if (session.isAutopresentMode()) {
+                        customAchievement.present();
+                    }
+                }
+            } else {
+                customAchievement = null;
+            }
         }
     }
 

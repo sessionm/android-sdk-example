@@ -23,6 +23,9 @@ import java.util.HashMap;
 import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.app.TaskStackBuilder;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -30,6 +33,7 @@ import android.content.res.Configuration;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
+import android.support.v4.app.NotificationCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.view.LayoutInflater;
@@ -61,13 +65,13 @@ public class MainActivity extends BaseActivity {
     private CharSequence mTitle;
     private String[] mListTitles;
     private HashMap<Integer, String> mListCount;
+    private boolean startFromNotification;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        showWelcomeDialog(this);
         /**
          * Set up the navigation drawer
          */
@@ -111,6 +115,12 @@ public class MainActivity extends BaseActivity {
             }
         };
         mDrawerLayout.setDrawerListener(mDrawerToggle);
+        Bundle bundle = getIntent().getExtras();
+        if(bundle != null) {
+            startFromNotification = bundle.getBoolean("startFromNotification");
+        }
+        else
+            showWelcomeDialog(this);
 
         if (savedInstanceState == null) {
             selectItem(0);
@@ -120,10 +130,15 @@ public class MainActivity extends BaseActivity {
     /**
      * Update navigation drawer badge.
      */
-    protected void onResume(){
+    protected void onResume() {
         super.onResume();
         updateDrawerBadge();
+        if(startFromNotification){
+            SessionM.getInstance().presentActivity(ActivityType.PORTAL);
+            startFromNotification = false;
+        }
     }
+
     /**
      * Override method in SessionListener which is implemented in BaseActivity to listen on user state.
      * Each time user info is updated, update the badge value.
@@ -131,6 +146,7 @@ public class MainActivity extends BaseActivity {
     @Override
     public void onUserUpdated(SessionM instance, User user) {
         updateDrawerBadge();
+        pushNotification();
     }
 
     /**
@@ -138,8 +154,7 @@ public class MainActivity extends BaseActivity {
      */
     private void updateDrawerBadge() {
         int count = SessionM.getInstance().getUser().getUnclaimedAchievementCount();
-        mListCount.put(1, "");
-        if (count > 0) {
+        if (count != 0) {
             mListCount.put(1, Integer.toString(count));
         }
         myAdapter.notifyDataSetChanged();
@@ -288,9 +303,34 @@ public class MainActivity extends BaseActivity {
                         SessionM.getInstance().presentActivity(ActivityType.PORTAL);
                     }
                 }).setNegativeButton(R.string.dialog_cancel, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                    }
-                });
+            public void onClick(DialogInterface dialog, int id) {
+            }
+        });
         builder.create().show();
+    }
+
+    public void pushNotification() {
+        NotificationCompat.Builder mBuilder =
+                new NotificationCompat.Builder(this)
+                        .setSmallIcon(R.drawable.m)
+                        .setContentTitle("New Achievement!")
+                        .setPriority(NotificationCompat.PRIORITY_HIGH)
+                        .setContentText("Claim your achievement");
+        Intent resultIntent = new Intent(this, MainActivity.class);
+        resultIntent.putExtra("startFromNotification", true);
+        TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
+        stackBuilder.addParentStack(MainActivity.class);
+        stackBuilder.addNextIntent(resultIntent);
+        PendingIntent resultPendingIntent =
+                stackBuilder.getPendingIntent(
+                        0,
+                        PendingIntent.FLAG_UPDATE_CURRENT
+                );
+        mBuilder.setContentIntent(resultPendingIntent);
+        NotificationManager mNotificationManager =
+                (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        // mId allows you to update the notification later on.
+        int mId = 1;
+        mNotificationManager.notify(mId, mBuilder.build());
     }
 }

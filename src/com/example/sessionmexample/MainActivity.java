@@ -132,7 +132,6 @@ public class MainActivity extends BaseActivity {
      */
     protected void onResume() {
         super.onResume();
-        updateDrawerBadge();
         if(startFromNotification){
             SessionM.getInstance().presentActivity(ActivityType.PORTAL);
             startFromNotification = false;

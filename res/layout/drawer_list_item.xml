@@ -40,7 +40,19 @@
         android:layout_marginRight="10dp"
         android:background="@drawable/counter_shape"
         android:gravity="center_vertical"
-        android:textSize="15dp"
+        android:textSize="15sp"
         android:textStyle="bold" />
+
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:id="@+id/switch_optout"
+        android:layout_toRightOf="@+id/list_text"
+        android:layout_toEndOf="@+id/list_text"
+        android:visibility="gone"/>
 
 </RelativeLayout>

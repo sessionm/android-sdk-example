@@ -31,6 +31,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Color;
+import android.graphics.SweepGradient;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.NotificationCompat;
@@ -42,8 +43,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import com.sessionm.api.BaseActivity;
@@ -60,6 +63,7 @@ public class MainActivity extends BaseActivity {
     private DrawerLayout mDrawerLayout;
     private ListView mDrawerList;
     private ActionBarDrawerToggle mDrawerToggle;
+    private Switch switch_status;
     private MyArrayAdapter myAdapter;
     private CharSequence mDrawerTitle;
     private CharSequence mTitle;
@@ -116,12 +120,11 @@ public class MainActivity extends BaseActivity {
         };
         mDrawerLayout.setDrawerListener(mDrawerToggle);
         Bundle bundle = getIntent().getExtras();
-        if(bundle != null) {
+        if (bundle != null) {
             startFromNotification = bundle.getBoolean("startFromNotification");
         }
         else
             showWelcomeDialog(this);
-
         if (savedInstanceState == null) {
             selectItem(0);
         }
@@ -132,7 +135,8 @@ public class MainActivity extends BaseActivity {
      */
     protected void onResume() {
         super.onResume();
-        if(startFromNotification){
+        updateDrawerBadge();
+        if (startFromNotification) {
             SessionM.getInstance().presentActivity(ActivityType.PORTAL);
             startFromNotification = false;
         }
@@ -157,6 +161,15 @@ public class MainActivity extends BaseActivity {
             mListCount.put(1, Integer.toString(count));
         }
         myAdapter.notifyDataSetChanged();
+    }
+
+    private void setUserStatusListener() {
+        switch_status.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+                SessionM.getInstance().getUser().setOptedOut(MainActivity.this, isChecked);
+            }
+        });
     }
 
     @Override
@@ -287,6 +300,13 @@ public class MainActivity extends BaseActivity {
             badgeView.setText(count.get(position));
             String s = objects[position];
             imageView.setImageResource(R.drawable.ic_launcher);
+            //Switch for OptIn/OptOut mPOINTS
+            if (position == 4) {
+                switch_status = (Switch) rowView.findViewById(R.id.switch_optout);
+                switch_status.setVisibility(View.VISIBLE);
+                switch_status.setChecked(SessionM.getInstance().getUser().isOptedOut());
+                setUserStatusListener();
+            }
             return rowView;
         }
     }

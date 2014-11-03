@@ -1,0 +1,7 @@
+
+.idea
+.gradle
+build
+android-sdk-example.iml
+local.properties
+gradle/

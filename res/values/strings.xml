@@ -19,7 +19,7 @@
         <item>mPoints</item>
         <item>Achievement</item>
         <item>Welcome</item>
-        <item>Status</item>
+        <item>Opt-out</item>
     </string-array>
 
     <string name="drawer_open">Open navigation drawer</string>

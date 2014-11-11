@@ -67,7 +67,7 @@ public class CustomAchievement extends RelativeLayout {
 	
 	private enum AchievementState {
 		INITIALIZED, PRESENTED, CLAIMED, DISMISSED
-	};
+	}
 	
 
 	private class DismissTask extends TimerTask {
@@ -132,7 +132,7 @@ public class CustomAchievement extends RelativeLayout {
 
 	/**
 	 * Constructor
-	 * @param context
+	 * @param context Context
 	 */
 	public CustomAchievement(Context context) {
 		super(context);
@@ -147,8 +147,8 @@ public class CustomAchievement extends RelativeLayout {
 
 	/**
 	 * Constructor
-	 * @param context
-	 * @param attributes
+	 * @param context Context
+	 * @param attributes AttributeSet
 	 */
 	public CustomAchievement(Context context, AttributeSet attributes) {
 		super(context, attributes);
@@ -171,7 +171,7 @@ public class CustomAchievement extends RelativeLayout {
 
 	/**
 	 * This will populate the view will all the achievement data.
-	 * @param achievement
+	 * @param achievement Achievement Data
 	 */
 	public void setAchievementData(AchievementData achievement) {
 		achievementActivity = new AchievementActivity(achievement);
@@ -275,7 +275,7 @@ public class CustomAchievement extends RelativeLayout {
 	
 	/**
 	 * Determines how achievement will be presented.
-	 * @param presentationStyle
+	 * @param presentationStyle Presentation style
 	 */
 	public void setAchievementPresentationStyle(AchievementPresentationStyle presentationStyle) {
 		this.presentationStyle = presentationStyle;

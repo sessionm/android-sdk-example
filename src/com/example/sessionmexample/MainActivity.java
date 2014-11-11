@@ -12,7 +12,7 @@ package com.example.sessionmexample;
  *  - On The Home Screen
  *  - With A Welcome Message
  *
- * Your app comes preconfigured with visitation achievements. If everything is working, you should see the "Daily Tap In"
+ * Your app comes pre-configured with visitation achievements. If everything is working, you should see the "Daily Tap In"
  * achievement the first time you start your app. These are awarded automatically when the user opens your app.
  *
  * You can see more achievements implementation ideas in AchievementActivity class.
@@ -76,9 +76,7 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        /**
-         * Set up the navigation drawer
-         */
+        //Set up the navigation drawer
         mTitle = mDrawerTitle = getTitle();
         mListTitles = getResources().getStringArray(R.array.lists_array);
         mListCount = new HashMap<Integer, String>();
@@ -131,7 +129,7 @@ public class MainActivity extends BaseActivity {
     }
 
     /**
-     * Update navigation drawer badge.
+     * Update navigation drawer badge in onResume().
      */
     protected void onResume() {
         super.onResume();
@@ -163,6 +161,16 @@ public class MainActivity extends BaseActivity {
         myAdapter.notifyDataSetChanged();
     }
 
+    /**
+     * Override method in SessionListener which is implemented in BaseActivity to listen on session state.
+     * It is recommended that if the session is not ONLINE(can be network error, non-US user error), disable the reward button
+     * until the session is ONLINE again.
+     */
+    @Override
+    public void onSessionStateChanged(SessionM session, SessionM.State state){
+        myAdapter.notifyDataSetChanged();
+    }
+
     private void setUserStatusListener() {
         switch_status.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -174,10 +182,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (mDrawerToggle.onOptionsItemSelected(item)) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
+        return mDrawerToggle.onOptionsItemSelected(item) || super.onOptionsItemSelected(item);
     }
 
     /* The click listener for ListView in the navigation drawer */
@@ -307,7 +312,24 @@ public class MainActivity extends BaseActivity {
                 switch_status.setChecked(SessionM.getInstance().getUser().isOptedOut());
                 setUserStatusListener();
             }
+            //Disable mPoints items if session is not online
+            if(!isEnabled(position)){
+                textView.setTextColor(Color.GRAY);
+                badgeView.setText("");
+                if(switch_status != null)
+                    switch_status.setEnabled(false);
+            }
             return rowView;
+        }
+
+        /**
+         * Check if session is ONLINE for mPoints related items
+         * @param position list view item position
+         * @return bool
+         */
+        @Override
+        public boolean isEnabled(int position){
+            return !(position == 1 || position == 4) || SessionM.getInstance().getSessionState() == SessionM.State.STARTED_ONLINE;
         }
     }
 
@@ -328,6 +350,9 @@ public class MainActivity extends BaseActivity {
         builder.create().show();
     }
 
+    /**
+     * Sample code shows how to pop up mPoints achievements in Notification center.
+     */
     public void pushNotification() {
         NotificationCompat.Builder mBuilder =
                 new NotificationCompat.Builder(this)

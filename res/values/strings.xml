@@ -9,34 +9,29 @@
     <string name="claim">CLAIM</string>
     <string name="achievement_unlocked">ACHIEVEMENT UNLOCKED</string>
     <string name="close_button_desc">Close Button</string>
+
     <string-array name="presentation_styles">
         <item>Slide In/Slide Out</item>
         <item>Scale Up/Scale Down</item>
     </string-array>
-
     <string-array name="lists_array">
         <item>Home</item>
         <item>mPoints</item>
         <item>Achievements</item>
         <item>Welcome</item>
         <item>Opt-out</item>
+        <item>Show Custom</item>
     </string-array>
 
     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>
     <string name="action_websearch">Web search</string>
-    
-    <string name="dialog_welcome">
-                        <b> COLLECT mPOINTS</b>
-                        for daily activities in your favorite apps; like tracking a run, adding a movie to your watchlist or checking the weather.\n\n
-                        <b>ENGAGE WITH BRANDS</b>
-                        and earn bonus mPOINTS when you choose to watch their videos, play games or take social polls during natural breaks in app content.\n\n
-                        <b>Choose Your Rewards!</b>
-                        Redeem your mPOINTS for gift cards from major retailers like iTunes and Amazon. Or use them for contest entries or to donate to a favorite charity.
-    </string>
-
+    <string name="dialog_welcome"><b> COLLECT mPOINTS</b>                         for daily activities in your favorite apps; like tracking a run, adding a movie to your watchlist or checking the weather.\n\n <b>ENGAGE WITH BRANDS</b>                         and earn bonus mPOINTS when you choose to watch their videos, play games or take social polls during natural breaks in app content.\n\n <b>Choose Your Rewards!</b>                         Redeem your mPOINTS for gift cards from major retailers like iTunes and Amazon. Or use them for contest entries or to donate to a favorite charity.</string>
     <string name="dialog_ok">Try it!</string>
     <string name="dialog_cancel">Later</string>
     <string name="dialog_title">Welcome to mPOINTS!</string>
+    <string name="title_activity_show_custom_achievement">ShowCustomAchievementActivity</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="show_custom">Show Custom</string>
 
 </resources>

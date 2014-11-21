@@ -2,12 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.sessionmexample"
     android:versionCode="1"
-    android:versionName="1.0">
+    android:versionName="1.0" >
 
     <uses-sdk
         android:minSdkVersion="16"
-        android:targetSdkVersion="19" />
-    <!-- these permissions are required for SessionM SDK-->
+        android:targetSdkVersion="21" />
+    <!-- these permissions are required for SessionM SDK -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
@@ -23,50 +23,57 @@
         android:allowClearUserData="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme">
-
-        <meta-data android:name="com.google.android.gms.version"
+        android:theme="@style/AppTheme" >
+        <meta-data
+            android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
-        <!--  Put your App Id in the manifest as shown. 
-            NOTE: This is just example app id, you need to create your own in the developer portal. -->
+        <!--
+              Put your App Id in the manifest as shown. 
+            NOTE: This is just example app id, you need to create your own in the developer portal.
+        -->
         <meta-data
             android:name="com.sessionm.appid"
             android:value="5b5014bae140c4d0138918194a0cc9a02b265f5d" />
 
         <!-- These are SessionM Sample App Activities -->
         <activity
-            android:name="com.example.sessionmexample.MainActivity"
-            android:label="@string/app_name">
+            android:name=".MainActivity"
+            android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
-            android:name="com.example.sessionmexample.AchievementActivity"
-            android:label="@string/app_name"></activity>
+            android:name=".AchievementActivity"
+            android:label="@string/app_name" />
 
-        <!--  These activities need to be included in your app.
-        You may want to adjust the orientation settings to meet your apps orientation requirements. -->
+        <!--
+        These activities need to be included in your app.
+        You may want to adjust the orientation settings to meet your apps orientation requirements.
+        -->
         <activity
             android:name="com.sessionm.ui.SessionMActivity"
             android:configChanges="keyboard|orientation|screenSize"
             android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"
-            android:windowSoftInputMode="adjustPan"></activity>
-
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name="com.sessionm.ui.SessionMVideoActivity"
             android:configChanges="keyboard|orientation|screenSize" />
 
-        <!--  This needs to be included in your app so that sessionm is notified when the connection changes. -->
-        <receiver android:name="com.sessionm.api.ConnectionReceiver">
+        <!-- This needs to be included in your app so that sessionm is notified when the connection changes. -->
+        <receiver android:name="com.sessionm.api.ConnectionReceiver" >
             <intent-filter>
-                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"></action>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
             </intent-filter>
         </receiver>
+
+        <activity
+            android:name=".ShowCustomAchievementActivity"
+            android:label="@string/title_activity_show_custom_achievement" >
+        </activity>
     </application>
 
 </manifest>

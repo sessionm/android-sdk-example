@@ -1,6 +1,7 @@
 package com.example.sessionmexample;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -38,7 +39,7 @@ public class AchievementActivity extends Activity implements CustomAchievementLi
 
     private BadgeView portalBadger;
 
-    private CustomAchievement customAchievement;
+    public static CustomAchievement customAchievement;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -51,6 +52,7 @@ public class AchievementActivity extends Activity implements CustomAchievementLi
         portalBadger = new BadgeView(this, rewardsButton);
         SessionM.getInstance().setSessionListener(new MySessionListener());
         getActionBar().setDisplayHomeAsUpEnabled(true);
+        SessionM.getInstance().setAutopresentMode(false);
     }
 
     @Override
@@ -112,7 +114,7 @@ public class AchievementActivity extends Activity implements CustomAchievementLi
     protected void onDestroy() {
         super.onPause();
         if (customAchievement != null) {
-            customAchievement.dismiss(true);
+            //customAchievement.dismiss(true);
         }
         customAchievement = null;
     }

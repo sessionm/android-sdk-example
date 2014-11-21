@@ -31,7 +31,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Color;
-import android.graphics.SweepGradient;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.NotificationCompat;
@@ -147,7 +146,7 @@ public class MainActivity extends BaseActivity {
     @Override
     public void onUserUpdated(SessionM instance, User user) {
         updateDrawerBadge();
-        pushNotification();
+        //pushNotification();
     }
 
     /**
@@ -265,6 +264,9 @@ public class MainActivity extends BaseActivity {
                 case 3:
                     showWelcomeDialog(this.getActivity());
                     break;
+                case 5:
+                    Intent intent1 = new Intent(this.getActivity(), ShowCustomAchievementActivity.class);
+                    startActivity(intent1);
                 default:
                     break;
             }

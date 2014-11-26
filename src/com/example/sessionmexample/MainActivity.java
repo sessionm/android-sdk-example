@@ -31,7 +31,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Color;
-import android.graphics.SweepGradient;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.NotificationCompat;
@@ -319,7 +318,7 @@ public class MainActivity extends BaseActivity {
             String s = objects[position];
             imageView.setImageResource(R.drawable.ic_launcher);
             //Switch for OptIn/OptOut mPOINTS
-            if (position == 4) {
+            if (position == 5) {
                 switch_status = (Switch) rowView.findViewById(R.id.switch_optout);
                 switch_status.setVisibility(View.VISIBLE);
                 switch_status.setChecked(SessionM.getInstance().getUser().isOptedOut());
@@ -342,7 +341,7 @@ public class MainActivity extends BaseActivity {
          */
         @Override
         public boolean isEnabled(int position){
-            return !(position == 1 || position == 4) || SessionM.getInstance().getSessionState() == SessionM.State.STARTED_ONLINE;
+            return !(position == 1 || position == 5) || SessionM.getInstance().getSessionState() == SessionM.State.STARTED_ONLINE;
         }
     }
 

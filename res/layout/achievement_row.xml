@@ -28,8 +28,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/reward_id"
-        android:id="@+id/achievementID" />
+        android:text="@string/achievement_message"
+        android:id="@+id/achievementMessage" />
 
     <TextView
         android:layout_width="wrap_content"

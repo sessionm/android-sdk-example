@@ -46,6 +46,7 @@
     <string name="earned_times">Earned Times</string>
     <string name="limit_times">Limit Times</string>
     <string name="icon_url">Icon URL</string>
+    <string name="achievement_message">message: </string>
     <string name="should_auto_update">AutoUpdateAchievementsList</string>
     <string name="reward_name">name: </string>
     <string name="reward_id">id: </string>

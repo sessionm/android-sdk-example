@@ -76,7 +76,7 @@ public class AchievementListActivity extends ListActivity {
             LayoutInflater inflater = (LayoutInflater) context
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             View rowView = inflater.inflate(R.layout.achievement_row, parent, false);
-            TextView textView_id = (TextView) rowView.findViewById(R.id.achievementID);
+            TextView textView_message = (TextView) rowView.findViewById(R.id.achievementMessage);
             TextView textView_name = (TextView) rowView.findViewById(R.id.achievementName);
             TextView textView_points = (TextView) rowView.findViewById(R.id.achievementPoints);
             TextView textView_earned_times = (TextView) rowView.findViewById(R.id.achievementEarnedTimes);
@@ -85,8 +85,8 @@ public class AchievementListActivity extends ListActivity {
             ImageView imageView_icon = (ImageView) rowView.findViewById(R.id.achievementIcon);
 
             AchievementData a = values.get(position);
-            textView_id.setText("ID: " + a.getAchievementId());
             textView_name.setText("Name: " + a.getName());
+            textView_message.setText("Message: " + a.getInstructions());
             textView_points.setText("" + a.getMpointValue());
             textView_earned_times.setText("Times Earned: " + a.getTimesEarned());
             textView_unclaimed_count.setText("Unclaimed Count: " + a.getUnclaimedCount());

@@ -48,7 +48,10 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.sessionm.api.BaseActivity;
 import com.sessionm.api.PortalButton;
 import com.sessionm.api.SessionM;
@@ -75,6 +78,9 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(this).build();
+        ImageLoader.getInstance().init(config);
 
         //Set up the navigation drawer
         mTitle = mDrawerTitle = getTitle();
@@ -259,10 +265,17 @@ public class MainActivity extends BaseActivity {
                     SessionM.getInstance().presentActivity(ActivityType.PORTAL);
                     break;
                 case 2:
-                    Intent intent = new Intent(this.getActivity(), AchievementActivity.class);
-                    startActivity(intent);
+                    Intent achievementsIntent = new Intent(this.getActivity(), AchievementActivity.class);
+                    startActivity(achievementsIntent);
                     break;
                 case 3:
+                    Intent listIntent = new Intent(this.getActivity(), AchievementListActivity.class);
+                    if(SessionM.getInstance().getSessionState().equals(SessionM.State.STARTED_ONLINE))
+                        startActivity(listIntent);
+                    else
+                        Toast.makeText(this.getActivity(), "Session not started!", Toast.LENGTH_SHORT).show();
+                    break;
+                case 4:
                     showWelcomeDialog(this.getActivity());
                     break;
                 default:

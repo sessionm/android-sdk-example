@@ -6,7 +6,7 @@
 
     <uses-sdk
         android:minSdkVersion="16"
-        android:targetSdkVersion="19" />
+        android:targetSdkVersion="21" />
     <!-- these permissions are required for SessionM SDK-->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -47,7 +47,11 @@
 
         <activity
             android:name="com.example.sessionmexample.AchievementActivity"
-            android:label="@string/app_name"></activity>
+            android:label="@string/app_name"/>
+
+        <activity
+            android:name="com.example.sessionmexample.AchievementListActivity"
+            android:label="@string/app_name"/>
 
         <!--  These activities need to be included in your app.
         You may want to adjust the orientation settings to meet your apps orientation requirements. -->
@@ -55,7 +59,7 @@
             android:name="com.sessionm.ui.SessionMActivity"
             android:configChanges="keyboard|orientation|screenSize"
             android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"
-            android:windowSoftInputMode="adjustPan"></activity>
+            android:windowSoftInputMode="adjustPan"/>
 
         <activity
             android:name="com.sessionm.ui.SessionMVideoActivity"

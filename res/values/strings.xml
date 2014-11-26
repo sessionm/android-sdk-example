@@ -18,6 +18,7 @@
         <item>Home</item>
         <item>mPoints</item>
         <item>Achievements</item>
+        <item>Achievements List</item>
         <item>Welcome</item>
         <item>Opt-out</item>
     </string-array>
@@ -38,5 +39,19 @@
     <string name="dialog_ok">Try it!</string>
     <string name="dialog_cancel">Later</string>
     <string name="dialog_title">Welcome to mPOINTS!</string>
+
+    <string name="achievements_list">Achievements List</string>
+    <string name="last_earn_date">Last Earned Date</string>
+    <string name="unclaimed_count">Unclaimed Count</string>
+    <string name="earned_times">Earned Times</string>
+    <string name="limit_times">Limit Times</string>
+    <string name="icon_url">Icon URL</string>
+    <string name="should_auto_update">AutoUpdateAchievementsList</string>
+    <string name="reward_name">name: </string>
+    <string name="reward_id">id: </string>
+    <string name="reward_type">type: </string>
+    <string name="reward_points">points: </string>
+    <string name="reward_url">url: </string>
+    <string name="reward_image">image: </string>
 
 </resources>

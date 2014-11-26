@@ -11,9 +11,8 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:src="@drawable/m"
-        android:layout_margin="5dp">
+        android:layout_margin="5dp"/>
 
-    </ImageView>
 
     <TextView
         android:id="@+id/list_text"

@@ -64,10 +64,10 @@ public class ShowCustomAchievementActivity extends BaseActivity implements Custo
         AchievementData a = SessionM.getInstance().getUnclaimedAchievement();
         //for custom achievement
         customAchievement = getAvailableCustomAchievement(AchievementActivity.customAchievement);
-        if(a != null || customAchievement != null) {
+        if(a != null)
             SessionM.getInstance().presentActivity(SessionM.ActivityType.ACHIEVEMENT);
+        if(customAchievement != null)
             customAchievement.present();
-        }
     }
 
     private CustomAchievement getAvailableCustomAchievement(CustomAchievement customAchievement){

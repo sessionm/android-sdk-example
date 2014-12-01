@@ -105,6 +105,8 @@ public class AchievementActivity extends Activity implements CustomAchievementLi
     @Override
     protected void onStop() {
         super.onStop();
+        //Manually update achievement list. You can add this line to wherever you want. See API doc for more info.
+        SessionM.getInstance().updateAchievementsList();
         SessionM.getInstance().onActivityStop(this);
     }
 
@@ -139,8 +141,6 @@ public class AchievementActivity extends Activity implements CustomAchievementLi
             } else {
                 portalBadger.setText("" + unclaimedCount);
                 portalBadger.show();
-                //Manually update achievements list. See API doc for more info.
-                SessionM.getInstance().updateAchievementsList();
             }
             if (user.isOptedOut()) {
                 Toast.makeText(AchievementActivity.this,

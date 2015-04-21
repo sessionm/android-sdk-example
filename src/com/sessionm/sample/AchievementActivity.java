@@ -1,4 +1,4 @@
-package com.example.sessionmexample;
+package com.sessionm.sample;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -6,12 +6,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-import com.example.sessionmexample.CustomAchievement.AchievementPresentationStyle;
-import com.example.sessionmexample.CustomAchievement.CustomAchievementListener;
+import com.sessionm.sample.CustomAchievement.AchievementPresentationStyle;
+import com.sessionm.sample.CustomAchievement.CustomAchievementListener;
 import com.sessionm.api.AchievementData;
 import com.sessionm.api.SessionListener;
 import com.sessionm.api.SessionM;

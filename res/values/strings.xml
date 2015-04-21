@@ -20,6 +20,7 @@
         <item>Achievements</item>
         <item>Welcome</item>
         <item>Opt-out</item>
+        <item>CLV</item>
     </string-array>
 
     <string name="drawer_open">Open navigation drawer</string>

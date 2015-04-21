@@ -1,4 +1,4 @@
-package com.example.sessionmexample;
+package com.sessionm.sample;
 
 import android.content.Context;
 import android.content.res.Resources;

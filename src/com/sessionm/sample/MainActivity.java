@@ -1,4 +1,4 @@
-package com.example.sessionmexample;
+package com.sessionm.sample;
 
 /**
  * This class extends SessionM BaseActivity to shows how to integrate SessionM SDK.
@@ -18,8 +18,6 @@ package com.example.sessionmexample;
  * You can see more achievements implementation ideas in AchievementActivity class.
  */
 
-import java.util.HashMap;
-
 import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.FragmentManager;
@@ -31,7 +29,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Color;
-import android.graphics.SweepGradient;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.NotificationCompat;
@@ -49,11 +46,14 @@ import android.widget.ListView;
 import android.widget.Switch;
 import android.widget.TextView;
 
+import com.sessionm.api.AchievementActivity;
 import com.sessionm.api.BaseActivity;
 import com.sessionm.api.PortalButton;
 import com.sessionm.api.SessionM;
 import com.sessionm.api.SessionM.ActivityType;
 import com.sessionm.api.User;
+
+import java.util.HashMap;
 
 /**
  * This class extends from SessionM BaseActivity.
@@ -63,13 +63,15 @@ public class MainActivity extends BaseActivity {
     private DrawerLayout mDrawerLayout;
     private ListView mDrawerList;
     private ActionBarDrawerToggle mDrawerToggle;
-    private Switch switch_status;
+    private Switch optout_switch;
+    private Switch custom_loader_switch;
     private MyArrayAdapter myAdapter;
     private CharSequence mDrawerTitle;
     private CharSequence mTitle;
     private String[] mListTitles;
     private HashMap<Integer, String> mListCount;
     private boolean startFromNotification;
+    private SampleCustomLoaderView sampleCustomLoaderView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -172,7 +174,7 @@ public class MainActivity extends BaseActivity {
     }
 
     private void setUserStatusListener() {
-        switch_status.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        optout_switch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
                 SessionM.getInstance().getUser().setOptedOut(MainActivity.this, isChecked);
@@ -307,17 +309,33 @@ public class MainActivity extends BaseActivity {
             imageView.setImageResource(R.drawable.ic_launcher);
             //Switch for OptIn/OptOut mPOINTS
             if (position == 4) {
-                switch_status = (Switch) rowView.findViewById(R.id.switch_optout);
-                switch_status.setVisibility(View.VISIBLE);
-                switch_status.setChecked(SessionM.getInstance().getUser().isOptedOut());
+                optout_switch = (Switch) rowView.findViewById(R.id.list_switch);
+                optout_switch.setVisibility(View.VISIBLE);
+                optout_switch.setChecked(SessionM.getInstance().getUser().isOptedOut());
                 setUserStatusListener();
+            }
+            if (position == 5) {
+                custom_loader_switch = (Switch) rowView.findViewById(R.id.list_switch);
+                custom_loader_switch.setVisibility(View.VISIBLE);
+                custom_loader_switch.setChecked(sampleCustomLoaderView != null);
+                custom_loader_switch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                        if (isChecked)
+                            sampleCustomLoaderView = new SampleCustomLoaderView(MainActivity.this);
+                        else {
+                            sampleCustomLoaderView.removeCustomLoader();
+                            sampleCustomLoaderView = null;
+                        }
+                    }
+                });
             }
             //Disable mPoints items if session is not online
             if(!isEnabled(position)){
                 textView.setTextColor(Color.GRAY);
                 badgeView.setText("");
-                if(switch_status != null)
-                    switch_status.setEnabled(false);
+                if(optout_switch != null)
+                    optout_switch.setEnabled(false);
             }
             return rowView;
         }

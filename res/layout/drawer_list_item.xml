@@ -44,15 +44,14 @@
         android:textStyle="bold" />
 
     <Switch
+        android:id="@+id/list_switch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:layout_alignParentRight="true"
         android:layout_marginRight="10dp"
-        android:id="@+id/switch_optout"
         android:layout_toRightOf="@+id/list_text"
         android:layout_toEndOf="@+id/list_text"
         android:visibility="gone"/>
-
 </RelativeLayout>

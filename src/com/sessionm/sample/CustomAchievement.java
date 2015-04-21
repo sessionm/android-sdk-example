@@ -1,7 +1,4 @@
-package com.example.sessionmexample;
-
-import java.util.Timer;
-import java.util.TimerTask;
+package com.sessionm.sample;
 
 import android.app.Activity;
 import android.content.Context;
@@ -22,6 +19,9 @@ import com.sessionm.api.AchievementActivity;
 import com.sessionm.api.AchievementActivity.AchievementDismissType;
 import com.sessionm.api.AchievementActivityIllegalStateException;
 import com.sessionm.api.AchievementData;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  *

@@ -64,7 +64,6 @@ public class MainActivity extends BaseActivity {
     private ListView mDrawerList;
     private ActionBarDrawerToggle mDrawerToggle;
     private Switch optout_switch;
-    private Switch custom_loader_switch;
     private MyArrayAdapter myAdapter;
     private CharSequence mDrawerTitle;
     private CharSequence mTitle;
@@ -81,7 +80,7 @@ public class MainActivity extends BaseActivity {
         //Set up the navigation drawer
         mTitle = mDrawerTitle = getTitle();
         mListTitles = getResources().getStringArray(R.array.lists_array);
-        mListCount = new HashMap<Integer, String>();
+        mListCount = new HashMap<>();
         for (int i = 0; i < mListTitles.length; i++) {
             mListCount.put(i, "");
         }
@@ -295,8 +294,7 @@ public class MainActivity extends BaseActivity {
         public View getView(int position, View convertView, ViewGroup parent) {
             LayoutInflater inflater = (LayoutInflater) context
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            View rowView = inflater.inflate(resource, parent,
-                    false);
+            View rowView = inflater.inflate(resource, parent, false);
             TextView textView = (TextView) rowView.findViewById(R.id.list_text);
 
             ImageView imageView = (ImageView) rowView.findViewById(R.id.list_icon);
@@ -314,8 +312,9 @@ public class MainActivity extends BaseActivity {
                 optout_switch.setChecked(SessionM.getInstance().getUser().isOptedOut());
                 setUserStatusListener();
             }
+            //Create custom loader view
             if (position == 5) {
-                custom_loader_switch = (Switch) rowView.findViewById(R.id.list_switch);
+                Switch custom_loader_switch = (Switch) rowView.findViewById(R.id.list_switch);
                 custom_loader_switch.setVisibility(View.VISIBLE);
                 custom_loader_switch.setChecked(sampleCustomLoaderView != null);
                 custom_loader_switch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {

@@ -150,7 +150,7 @@ public class AchievementActivity extends Activity implements CustomAchievementLi
         public void onSessionStateChanged(SessionM session, State state) {
             if (state == SessionM.State.STARTED_ONLINE) {
                 // When in started online you should enable your button
-                ImageButton rewardsButton = (ImageButton) ((Activity) AchievementActivity.this)
+                ImageButton rewardsButton = (ImageButton) AchievementActivity.this
                         .findViewById(R.id.rewards_btn);
                 rewardsButton.setImageResource(R.drawable.icn_mportal_on);
                 rewardsButton.setEnabled(true);
@@ -169,7 +169,7 @@ public class AchievementActivity extends Activity implements CustomAchievementLi
                 }
                 // When the session is stopped you can enable the button and
                 // change the background image.
-                ImageButton rewardsButton = (ImageButton) ((Activity) AchievementActivity.this)
+                ImageButton rewardsButton = (ImageButton) AchievementActivity.this
                         .findViewById(R.id.rewards_btn);
                 rewardsButton.setImageResource(R.drawable.icn_mportal_on);
                 rewardsButton.setEnabled(true);

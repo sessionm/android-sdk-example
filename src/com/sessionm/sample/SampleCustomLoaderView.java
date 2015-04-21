@@ -29,14 +29,14 @@ public class SampleCustomLoaderView extends com.sessionm.api.CustomLoaderView {
         //Main container layout
         RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT);
         RelativeLayout loadingContainerLayout = new RelativeLayout(context);
-        //Set custom loader background if you want
-        //loadingLayout.setBackground(getResources().getDrawable(R.drawable.bg));
         loadingContainerLayout.setLayoutParams(params);
 
         //Loading layout in LOADING state
         if (loadingLayout == null)
             loadingLayout = new RelativeLayout(context);
         loadingLayout.setLayoutParams(params);
+        //Set custom loader background if you want
+        loadingLayout.setBackgroundColor(context.getResources().getColor(R.color.cosmic_latte));
 
         RelativeLayout.LayoutParams titleLayoutParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
         titleLayoutParams.addRule(RelativeLayout.CENTER_HORIZONTAL, RelativeLayout.TRUE);

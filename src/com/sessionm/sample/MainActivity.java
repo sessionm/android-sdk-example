@@ -47,7 +47,6 @@ import android.widget.ListView;
 import android.widget.Switch;
 import android.widget.TextView;
 
-import com.sessionm.api.AchievementActivity;
 import com.sessionm.api.BaseActivity;
 import com.sessionm.api.PortalButton;
 import com.sessionm.api.SessionM;

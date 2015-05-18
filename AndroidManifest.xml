@@ -50,7 +50,17 @@
             android:name="com.sessionm.ui.SessionMActivity"
             android:configChanges="keyboard|orientation|screenSize"
             android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"
-            android:windowSoftInputMode="adjustPan" />
+            android:windowSoftInputMode="adjustPan">
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="sm5b5014bae140c4d0138918194a0cc9a02b265f5d" />
+            </intent-filter>
+        </activity>
 
         <activity
             android:name="com.sessionm.ui.SessionMVideoActivity"

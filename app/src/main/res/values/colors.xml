@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#A3BE5F</color>
+    <color name="colorPrimaryDark">#88A049</color>
+    <color name="black">#000000</color>
+    <color name="white">#ffffff</color>
+    <color name="transparent">#00000000</color>
+    <color name="feed_bg">#eeeeee</color>
+    <color name="feed_item_bg">#ffffff</color>
+    <color name="feed_item_border">#c2c3c8</color>
+    <color name="subline">#8c909b</color>
+    <color name="toggle_bg">#aaffffff</color>
+</resources>

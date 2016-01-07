@@ -1,0 +1,145 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:card_view="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:layout_centerHorizontal="true"
+              android:layout_centerVertical="true"
+              android:orientation="vertical">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/card_view_margin"
+        card_view:cardBackgroundColor="@android:color/white"
+        card_view:cardCornerRadius="8dp">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/scroll_view_padding">
+
+            <LinearLayout
+                android:id="@+id/login_signup_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+
+                <EditText
+                    android:id="@+id/login_email_edittext"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:hint="@string/email"
+                    android:inputType="textEmailAddress"
+                    android:linksClickable="false"
+                    android:singleLine="true"/>
+
+                <EditText
+                    android:id="@+id/login_password_edittext"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:hint="@string/password"
+                    android:inputType="textPassword"
+                    android:linksClickable="false"
+                    android:singleLine="true"/>
+
+                <EditText
+                    android:id="@+id/signup_confirm_password_edittext"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:hint="@string/confirm_password"
+                    android:inputType="textPassword"
+                    android:linksClickable="false"
+                    android:singleLine="true"
+                    android:visibility="gone"/>
+
+                <EditText
+                    android:id="@+id/signup_yob_edittext"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:hint="@string/yob"
+                    android:inputType="date"
+                    android:singleLine="true"
+                    android:visibility="gone"/>
+
+                <EditText
+                    android:id="@+id/signup_gender_edittext"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:hint="@string/gender"
+                    android:singleLine="true"
+                    android:visibility="gone"/>
+
+                <EditText
+                    android:id="@+id/signup_zip_code_edittext"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:hint="@string/zip_code"
+                    android:inputType="numberDecimal"
+                    android:singleLine="true"
+                    android:visibility="gone"/>
+
+                <Button
+                    android:id="@+id/login_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="20dp"
+                    android:background="@color/colorPrimary"
+                    android:text="@string/log_in"
+                    android:textColor="@color/white"/>
+
+                <Switch
+                    android:id="@+id/login_or_signup_switch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="20dp"
+                    android:checked="false"
+                    android:text="@string/log_in_or_sign_up"
+                    android:textColor="@color/material_blue_grey_800"/>
+
+                <Button
+                    android:id="@+id/auth_login_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="20dp"
+                    android:background="@color/colorPrimary"
+                    android:text="@string/auth_login"
+                    android:textColor="@color/white"/>
+            </LinearLayout>
+        </ScrollView>
+
+        <LinearLayout
+            android:id="@+id/profile_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="@dimen/scroll_view_padding"
+            android:visibility="gone">
+
+            <com.sessionm.example.view.FeedImageView
+                android:id="@+id/profile_image"
+                android:layout_width="@dimen/profile_image_size"
+                android:layout_height="@dimen/profile_image_size"
+                android:layout_gravity="center"/>
+
+            <Button
+                android:id="@+id/logout_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:background="@color/colorPrimary"
+                android:text="@string/log_out"
+                android:textColor="@color/white"/>
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+</LinearLayout>

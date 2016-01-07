@@ -1,0 +1,30 @@
+<FrameLayout
+    android:id="@+id/container"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    tools:ignore="MergeRootFrame">
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.github.ksoichiro.android.observablescrollview.ObservableListView
+            android:id="@+id/message_feed_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="@null"
+            android:dividerHeight="0dp"/>
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/promotion_offline"
+        android:text="You are currently Offline. Please try again later."
+        android:textStyle="bold"
+        android:gravity="center"/>
+</FrameLayout>

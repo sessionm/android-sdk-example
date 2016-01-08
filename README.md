@@ -3,7 +3,7 @@ android-sdk-example
 
 Sample project showing how to use the SessionM SDK for Android.
 
-For more SessionM's Mobile Marketing Cloud features, please contact us directly. devsupport@sessionm.com
+For more SessionM's Mobile Marketing Cloud features, please [email us](mailto: devsupport@sessionm.com) directly.
 
 LICENSE: MIT
 

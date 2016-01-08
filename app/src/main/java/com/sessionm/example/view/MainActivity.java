@@ -72,7 +72,9 @@ public class MainActivity extends AppCompatActivity implements SessionListener, 
 
     public class MyPagerAdapter extends FragmentPagerAdapter {
 
-        private final String[] TITLES = {"Promotions", "Submissions", "Achievements", "Profile"};
+        //TODO: Hide promotions/submissions tabs for now, not fully supported
+        //private final String[] TITLES = {"Promotions", "Submissions", "Achievements", "Profile"};
+        private final String[] TITLES = {"Achievements", "Profile"};
 
         public MyPagerAdapter(FragmentManager fm) {
             super(fm);
@@ -90,7 +92,8 @@ public class MainActivity extends AppCompatActivity implements SessionListener, 
 
         @Override
         public Fragment getItem(int position) {
-            Fragment fragment = PromotionsFragment.newInstance();
+            //TODO: Hide promotions/submissions tabs for now, not fully supported
+            /*Fragment fragment = PromotionsFragment.newInstance();
             switch (position) {
                 case 0:
                     messageFragment = PromotionsFragment.newInstance();
@@ -105,6 +108,18 @@ public class MainActivity extends AppCompatActivity implements SessionListener, 
                     fragment = achievementFragment;
                     break;
                 case 3:
+                    profileFragment = ProfileFragment.newInstance();
+                    fragment = profileFragment;
+                    break;
+            }
+            return fragment;*/
+            Fragment fragment = AchievementFragment.newInstance();
+            switch (position) {
+                case 0:
+                    achievementFragment = AchievementFragment.newInstance();
+                    fragment = achievementFragment;
+                    break;
+                case 1:
                     profileFragment = ProfileFragment.newInstance();
                     fragment = profileFragment;
                     break;

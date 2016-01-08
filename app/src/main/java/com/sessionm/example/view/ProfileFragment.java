@@ -76,6 +76,9 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         button = (Button) view.findViewById(R.id.login_button);
         logoutButton = (Button) view.findViewById(R.id.logout_button);
         authLoginButton = (Button) view.findViewById(R.id.auth_login_button);
+        //TODO: Hide auto login button for now, not fully supported yet
+        authLoginButton.setVisibility(View.GONE);
+
         imageView = (FeedImageView) view.findViewById(R.id.profile_image);
 
         typeSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {

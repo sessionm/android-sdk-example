@@ -20,6 +20,7 @@ android {
 }
 
 repositories {
+    maven { url 'https://sessionm.repo.maven.info.s3.amazonaws.com/snapshots' }
     mavenCentral()
 }
 
@@ -27,9 +28,13 @@ dependencies {
     compile 'com.android.support:appcompat-v7:23.1.1'
     compile 'com.android.support:design:23.1.1'
     compile 'com.android.support:cardview-v7:23.1.1'
-    compile 'com.google.android.gms:play-services:7.8.0'
+    compile 'com.google.android.gms:play-services-location:8.4.0'
+    compile 'com.google.android.gms:play-services-gcm:8.4.0'
+    compile 'com.google.android.gms:play-services-ads:8.4.0'
     compile 'com.mcxiaoke.volley:library:1.0.16'
     compile 'com.jpardogo.materialtabstrip:library:1.1.0'
     compile 'com.github.ksoichiro:android-observablescrollview:1.6.0'
-    compile files('libs/SessionM-1.11.2.jar')
+    compile 'com.sessionm:sdk:1.11.3'
+    compile 'com.squareup.okhttp:okhttp:2.6.0'
+    compile 'com.squareup.picasso:picasso:2.5.2'
 }

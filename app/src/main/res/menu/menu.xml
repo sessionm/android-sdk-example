@@ -4,14 +4,14 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/portal"
-        android:icon="@drawable/mr_ic_settings_light"
+        android:icon="@drawable/psts_background_tab"
         android:title="@string/portal"/>
     <item
         android:id="@+id/feed"
-        android:icon="@drawable/mr_ic_settings_light"
+        android:icon="@drawable/psts_background_tab"
         android:title="@string/activity_feed"/>
     <item
         android:id="@+id/settings"
-        android:icon="@drawable/mr_ic_settings_light"
+        android:icon="@drawable/psts_background_tab"
         android:title="@string/settings"/>
 </menu>

@@ -18,6 +18,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.sessionm.api.SessionM;
+import com.sessionm.api.geofence.GeofenceManager;
 import com.sessionm.example.BuildConfig;
 import com.sessionm.example.R;
 import com.sessionm.example.util.Utility;
@@ -83,9 +84,9 @@ public class SettingsActivity extends Activity{
                             geofenceEnabled = !geofenceEnabled;
                             checkBox.setChecked(geofenceEnabled);
                             if (geofenceEnabled)
-                                sessionM.getGeofenceManager().startGeofenceService(getApplicationContext(), null);
+                                GeofenceManager.startGeofenceService(getApplicationContext(), null);
                             else
-                                sessionM.getGeofenceManager().stopGeofenceService();
+                                GeofenceManager.stopGeofenceService(getApplicationContext());
                         }
                     });
                     break;

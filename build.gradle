@@ -12,6 +12,7 @@ buildscript {
 allprojects {
     repositories {
         jcenter()
+        maven { url 'http://maven.sessionm.com/public' }
     }
 }
 

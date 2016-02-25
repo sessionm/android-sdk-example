@@ -76,6 +76,8 @@ public class PromotionsFeedListAdapter extends BaseAdapter {
         if (imageLoader == null)
             imageLoader = SEApplication.getInstance().getImageLoader();
 
+
+
         FeedImageView iconImageView = (FeedImageView) convertView
                 .findViewById(R.id.promotion_icon_image);
 

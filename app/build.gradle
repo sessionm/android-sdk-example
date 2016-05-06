@@ -33,7 +33,7 @@ dependencies {
     compile 'com.mcxiaoke.volley:library:1.0.16'
     compile 'com.jpardogo.materialtabstrip:library:1.1.0'
     compile 'com.github.ksoichiro:android-observablescrollview:1.6.0'
-    compile 'com.sessionm.sdk:sessionm-sdk:1.11.3'
+    compile 'com.sessionm.sdk:sessionm-sdk:1.11.5'
     compile 'com.squareup.okhttp:okhttp:2.6.0'
     compile 'com.squareup.picasso:picasso:2.5.2'
 }

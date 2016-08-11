@@ -37,6 +37,8 @@
         <activity android:name="com.sessionm.example.view.SettingsActivity" >
         </activity>
 
+        <activity android:name="com.sessionm.api.message.feed.ui.ActivityFeedActivity"/>
+
         <meta-data
             android:name="com.sessionm.appid"
             android:value="@string/test_app_key" />
